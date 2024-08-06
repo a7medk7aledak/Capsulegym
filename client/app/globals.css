@@ -1,0 +1,163 @@
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-roboto;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-oswald font-bold uppercase;
+    }
+
+    .h {
+        @apply text-white text-7xl text-[128px] tracking-[-3px];
+    }
+
+    .h2 {
+        @apply text-[36px];
+    }
+
+    .h3 {
+        @apply text-[32px];
+    }
+
+    .h4 {
+        @apply text-[26px];
+    }
+
+    .h5 {
+        @apply text-[22px];
+    }
+
+    .h6 {
+        @apply text-[18px];
+    }
+}
+.active {
+    @apply: text-accent;
+}
+
+
+/* swiper pagination styles */
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+@apply bg-accent;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  width: 44px;
+  height: 44px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: darkred;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #f56565;
+}
+
+.contact-form .text-right {
+  text-align: right;
+}
+
+.contact-form button {
+  background-color: #f56565;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #e53e3e;
+}
+
+.contact-form button:disabled {
+  background-color: #e53e3e;
+  cursor: not-allowed;
+}
+
+.contact-form button .spinner {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.contact-form button.loading .spinner {
+  display: block;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+.alert-show {
+  opacity: 1;
+  max-height: 100px; /* Adjust this based on the expected height of your alerts */
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.0.14",
     "@types/react-scroll": "^1.8.10",
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.3",

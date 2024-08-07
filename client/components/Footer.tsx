@@ -78,9 +78,9 @@ const Footer = () => {
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/assets/img/footer.jpg"
-            layout="fill"
-            objectFit="cover"
             alt="Decorative background image"
+            fill
+            style={{ objectFit: "cover" }}
             className="opacity-40"
           />
         </div>

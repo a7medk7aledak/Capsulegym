@@ -24,7 +24,7 @@ const Header = () => {
     <header
       className={`${
         headerActive ? `h-[100px]` : `h-[124px]`
-      } transition-all fixed max-w-[1920px] top-0 w-full bg-primary-200 z-50`}
+      } transition-all fixed max-w-[1920px] top-0 w-full bg-primary-200  z-50`}
     >
       <div className="container mx-auto h-full flex items-center justify-between">
         <Link href="">
@@ -43,9 +43,9 @@ const Header = () => {
             : "max-h-0 pt-0 pb-0 overflow-hidden border-white/0"
         }
          transition-all w-full left-0 text-base uppercase font-medium
-        flex flex-col text-center gap-8 fixed bg-primary-200 text-white xl:hidden`}
+        flex flex-col text-center gap-8 fixed bg-primary text-white xl:hidden`}
         />
-        <Nav containerStyles="flex gap-4 text-base uppercase font-medium transition-all hidden xl:flex text-white"></Nav>
+        <Nav containerStyles="flex gap-4 text-base uppercase font-medium transition-all hidden xl:flex text-white" />
         <div className="flex items-center gap-4">
           <div className="text-white flex items-center gap-4">
             <Link

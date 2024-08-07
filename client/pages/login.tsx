@@ -1,19 +1,13 @@
-import React from "react";
+import AuthForm from "../components/AuthForm";
 import Header from "../components/Header";
-import LoginForm from "../components/LoginForm";
 
-const LoginPage: React.FC = () => {
+const Login = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 pt-[124px]">
-        <h1 className="text-3xl font-bold text-center my-8 text-white">
-          Login
-        </h1>
-        <LoginForm />
-      </div>
+      <AuthForm mode="login" />
     </>
   );
 };
 
-export default LoginPage;
+export default Login;

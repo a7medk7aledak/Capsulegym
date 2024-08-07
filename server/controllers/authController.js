@@ -3,19 +3,20 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res) => {
-  try {
-    const {
-      firstName,
-      lastName,
-      email,
-      password,
-      telephone,
-      age,
-      country,
-      gender,
-    } = req.body;
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    telephone,
+    age,
+    country,
+    gender,
+  } = req.body;
 
+  try {
     let user = await User.findOne({ email });
+
     if (user) {
       return res.status(400).json({ msg: "User already exists" });
     }
@@ -31,9 +32,6 @@ exports.register = async (req, res) => {
       gender,
     });
 
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
-
     await user.save();
 
     const payload = {
@@ -45,19 +43,55 @@ exports.register = async (req, res) => {
     jwt.sign(
       payload,
       process.env.JWT_SECRET,
-      { expiresIn: "1h" },
+      {
+        expiresIn: 360000,
+      },
       (err, token) => {
         if (err) throw err;
         res.json({ token });
       }
     );
-  } catch (err) {
-    console.error(err.message);
+  } catch (error) {
+    console.error(error.message);
     res.status(500).send("Server error");
   }
 };
 
-// The login function remains the same
 exports.login = async (req, res) => {
-  // ... (keep the existing login function)
+  const { email, password } = req.body;
+
+  try {
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ msg: "Invalid Credentials" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.status(400).json({ msg: "Invalid Credentials" });
+    }
+
+    const payload = {
+      user: {
+        id: user.id,
+      },
+    };
+
+    jwt.sign(
+      payload,
+      process.env.JWT_SECRET,
+      {
+        expiresIn: 360000,
+      },
+      (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      }
+    );
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server error");
+  }
 };

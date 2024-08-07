@@ -1,10 +1,13 @@
-import RegisterForm from "../components/RegisterForm";
+import AuthForm from "../components/AuthForm";
+import Header from "../components/Header";
 
-export default function Register() {
+const Register = () => {
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-2xl font-bold text-center my-8">Register</h1>
-      <RegisterForm />
-    </div>
+    <>
+      <Header />
+      <AuthForm mode="register" />
+    </>
   );
-}
+};
+
+export default Register;

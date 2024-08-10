@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { MdAttachEmail } from "react-icons/md";
 import { useState } from "react";
 import {
   contactInfo,
   blogPosts,
   galleryImages,
-  socialLinks,
+  trainerData,
 } from "../constants";
 
 const Footer = () => {
@@ -78,26 +80,36 @@ const Footer = () => {
         <Image
           src="/assets/img/footer.jpg"
           alt="Decorative background image"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-40"
+          fill
+          className="object-cover opacity-40"
         />
       </div>
       <div className="relative container mx-auto px-4 z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Contact Info */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xl font-bold mb-4">Capsule Gym</h4>
             <p className="mb-4">{contactInfo.description}</p>
             <ul>
-              <li className="mb-2">{contactInfo.address}</li>
+              <li className="mb-2 flex items-center justify-center md:justify-start">
+                <FaMapMarkerAlt className="mr-2 text-red-600 flex-shrink-0" />
+                <span>{contactInfo.address}</span>
+              </li>
               {contactInfo.phoneNumbers.map((number, index) => (
-                <li key={index} className="mb-2">
-                  {number}
+                <li
+                  key={index}
+                  className="mb-2 flex items-center justify-center md:justify-start"
+                >
+                  <FaPhoneAlt className="mr-2 text-red-600 flex-shrink-0" />
+                  <span>{number}</span>
                 </li>
               ))}
               {contactInfo.emails.map((email, index) => (
-                <li key={index} className="mb-2">
+                <li
+                  key={index}
+                  className="mb-2 flex items-center justify-center md:justify-start"
+                >
+                  <MdAttachEmail className="mr-2 text-red-600 flex-shrink-0" />
                   <a href={`mailto:${email}`} className="hover:underline">
                     {email}
                   </a>
@@ -107,7 +119,7 @@ const Footer = () => {
           </div>
 
           {/* Recent Blog Posts */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xl font-bold mb-4">RECENT BLOG POSTS</h4>
             <ul>
               {blogPosts.map((post, index) => (
@@ -116,22 +128,23 @@ const Footer = () => {
                     {post.title}
                   </Link>
                   <p className="text-gray-400 text-sm">{post.date}</p>
+                  <hr />
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Gallery */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xl font-bold mb-4">GALLERY</h4>
             <div className="grid grid-cols-3 gap-2">
               {galleryImages.map((img, index) => (
-                <Link key={index} href="#" className="block">
+                <Link key={index} href="#" className="block aspect-square">
                   <Image
                     src={img.src}
-                    width={90}
-                    height={90}
                     alt={img.alt}
+                    width={100}
+                    height={100}
                     className="object-cover w-full h-full"
                   />
                 </Link>
@@ -140,7 +153,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Form */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xl font-bold mb-4">Contact Us</h4>
             {alertMessage && (
               <div
@@ -223,7 +236,7 @@ const Footer = () => {
                   required
                 ></textarea>
               </div>
-              <div className="text-right">
+              <div className="text-center md:text-right">
                 <button
                   type="submit"
                   className={`bg-red-600 text-white p-3 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300 ${
@@ -246,14 +259,19 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-4 flex flex-col sm:flex-row justify-between items-center relative z-10">
-          <p className="mb-4 sm:mb-0 text-center sm:text-left">
+          <p className="mb-4 sm:mb-0 text-center">
             &copy; {currentYear} All rights reserved CapsuleGym.{" "}
             <span className="text-red-600">by Ahmed Khaled</span>
           </p>
-          <div className="flex space-x-4">
-            {socialLinks.map((link, index) => (
-              <Link key={index} href={link.href} className="text-xl">
-                <i className={link.iconClass}></i>
+          {/* Social Links */}
+          <div className="flex gap-12 justify-center">
+            {trainerData[0].social.map((social, socialIndex) => (
+              <Link
+                className="hover:text-accent transition-all cursor-pointer"
+                href={social.href}
+                key={socialIndex}
+              >
+                <social.icon className="text-3xl" />
               </Link>
             ))}
           </div>

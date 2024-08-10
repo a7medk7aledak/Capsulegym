@@ -99,7 +99,7 @@ import trainerData1 from "../public/assets/img/trainers/david.jpg";
 import trainerData2 from "../public/assets/img/trainers/matt.jpg";
 import trainerData3 from "../public/assets/img/trainers/rosy.jpg";
 import trainerData4 from "../public/assets/img/trainers/sofia.jpg";
-import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaYoutube, FaTiktok } from "react-icons/fa";
 export const trainerData = [
   {
     image: trainerData1,
@@ -108,9 +108,19 @@ export const trainerData = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, soluta.",
     social: [
-      { icon: FaFacebook, href: "http://facebook.com" },
+      {
+        icon: FaFacebook,
+        href: "https://www.facebook.com/profile.php?id=100084221542902&ref=pages_you_manage",
+      },
       { icon: FaTwitter, href: "http://twitter.com" },
-      { icon: FaYoutube, href: "http:/youtube.com" },
+      {
+        icon: FaYoutube,
+        href: "https://www.youtube.com/channel/UC2huGL4-BJUhRqvAnowoZFw",
+      },
+      {
+        icon: FaTiktok,
+        href: "https://www.tiktok.com/@capsulegym",
+      },
     ],
   },
   {
@@ -120,9 +130,19 @@ export const trainerData = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, soluta.",
     social: [
-      { icon: FaFacebook, href: "http://facebook.com" },
+      {
+        icon: FaFacebook,
+        href: "https://www.facebook.com/profile.php?id=100084221542902&ref=pages_you_manage",
+      },
       { icon: FaTwitter, href: "http://twitter.com" },
-      { icon: FaYoutube, href: "http:/youtube.com" },
+      {
+        icon: FaYoutube,
+        href: "https://www.youtube.com/channel/UC2huGL4-BJUhRqvAnowoZFw",
+      },
+      {
+        icon: FaTiktok,
+        href: "https://www.tiktok.com/@capsulegym",
+      },
     ],
   },
   {
@@ -132,9 +152,19 @@ export const trainerData = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, soluta.",
     social: [
-      { icon: FaFacebook, href: "http://facebook.com" },
+      {
+        icon: FaFacebook,
+        href: "https://www.facebook.com/profile.php?id=100084221542902&ref=pages_you_manage",
+      },
       { icon: FaTwitter, href: "http://twitter.com" },
-      { icon: FaYoutube, href: "http:/youtube.com" },
+      {
+        icon: FaYoutube,
+        href: "https://www.youtube.com/channel/UC2huGL4-BJUhRqvAnowoZFw",
+      },
+      {
+        icon: FaTiktok,
+        href: "https://www.tiktok.com/@capsulegym",
+      },
     ],
   },
   {
@@ -144,9 +174,19 @@ export const trainerData = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, soluta.",
     social: [
-      { icon: FaFacebook, href: "http://facebook.com" },
-      { icon: FaTwitter, href: "http://twitter.com" },
-      { icon: FaYoutube, href: "http:/youtube.com" },
+      {
+        icon: FaFacebook,
+        href: "https://www.facebook.com/profile.php?id=100084221542902&ref=pages_you_manage",
+      },
+      { icon: FaTwitter, href: "https://www.tiktok.com/@capsulegym" },
+      {
+        icon: FaYoutube,
+        href: "https://www.youtube.com/channel/UC2huGL4-BJUhRqvAnowoZFw",
+      },
+      {
+        icon: FaTiktok,
+        href: "https://www.tiktok.com/@capsulegym",
+      },
     ],
   },
 ];
@@ -163,7 +203,19 @@ export const testimonialData = [
     img: "/assets/img/testimonial/michael.jpg",
     message:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
-    name: "Lucy Anthony",
+    name: "michael maze",
+  },
+  {
+    img: "/assets/img/testimonial/maria.jpg",
+    message:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
+    name: "maria mark",
+  },
+  {
+    img: "/assets/img/testimonial/michael.jpg",
+    message:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
+    name: "michael maze",
   },
   {
     img: "/assets/img/testimonial/lucy.jpg",
@@ -172,10 +224,16 @@ export const testimonialData = [
     name: "Lucy Anthony",
   },
   {
+    img: "/assets/img/testimonial/maria.jpg",
+    message:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
+    name: "maria mark",
+  },
+  {
     img: "/assets/img/testimonial/michael.jpg",
     message:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
-    name: "Lucy Anthony",
+    name: "michael maze",
   },
   {
     img: "/assets/img/testimonial/lucy.jpg",
@@ -184,28 +242,10 @@ export const testimonialData = [
     name: "Lucy Anthony",
   },
   {
-    img: "/assets/img/testimonial/michael.jpg",
+    img: "/assets/img/testimonial/maria.jpg",
     message:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
-    name: "Lucy Anthony",
-  },
-  {
-    img: "/assets/img/testimonial/michael.jpg",
-    message:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
-    name: "Lucy Anthony",
-  },
-  {
-    img: "/assets/img/testimonial/lucy.jpg",
-    message:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
-    name: "Lucy Anthony",
-  },
-  {
-    img: "/assets/img/testimonial/michael.jpg",
-    message:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem corporis.",
-    name: "Lucy Anthony",
+    name: "maria mark",
   },
 ];
 
@@ -217,7 +257,19 @@ export const blogData = [
     href: "",
   },
   {
-    img: "/assets/img/blog/post1.jpg",
+    img: "/assets/img/blog/post2.jpg",
+    date: "March 10, 2024",
+    title: "Maintain a perfect structure after workout",
+    href: "",
+  },
+  {
+    img: "/assets/img/blog/post3.jpg",
+    date: "March 10, 2024",
+    title: "Maintain a perfect structure after workout",
+    href: "",
+  },
+  {
+    img: "/assets/img/blog/post4.jpg",
     date: "March 10, 2024",
     title: "Maintain a perfect structure after workout",
     href: "",
@@ -229,31 +281,19 @@ export const blogData = [
     href: "",
   },
   {
-    img: "/assets/img/blog/post1.jpg",
+    img: "/assets/img/blog/post2.jpg",
     date: "March 10, 2024",
     title: "Maintain a perfect structure after workout",
     href: "",
   },
   {
-    img: "/assets/img/blog/post1.jpg",
+    img: "/assets/img/blog/post3.jpg",
     date: "March 10, 2024",
     title: "Maintain a perfect structure after workout",
     href: "",
   },
   {
-    img: "/assets/img/blog/post1.jpg",
-    date: "March 10, 2024",
-    title: "Maintain a perfect structure after workout",
-    href: "",
-  },
-  {
-    img: "/assets/img/blog/post1.jpg",
-    date: "March 10, 2024",
-    title: "Maintain a perfect structure after workout",
-    href: "",
-  },
-  {
-    img: "/assets/img/blog/post1.jpg",
+    img: "/assets/img/blog/post4.jpg",
     date: "March 10, 2024",
     title: "Maintain a perfect structure after workout",
     href: "",

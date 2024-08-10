@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
 import Nav from "./Nav";
@@ -48,7 +49,13 @@ const Header = () => {
         <Nav containerStyles="flex gap-4 text-base uppercase font-medium transition-all hidden xl:flex text-white" />
         <div className="flex items-center gap-4">
           <div className="text-white flex items-center gap-4">
-            <Link
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            {/* <Link
               href="/login"
               className="hover:text-accent transition-all text-base uppercase font-medium"
             >
@@ -59,7 +66,7 @@ const Header = () => {
               className="hover:text-accent transition-all text-base uppercase font-medium"
             >
               Register
-            </Link>
+            </Link> */}
           </div>
           <button
             onClick={() => setOpenNav(!openNav)}

@@ -44,7 +44,7 @@ const Header = () => {
             : "max-h-0 pt-0 pb-0 overflow-hidden border-white/0"
         }
          transition-all w-full left-0 text-base uppercase font-medium
-        flex flex-col text-center gap-8 fixed bg-primary text-white xl:hidden`}
+        flex flex-col text-center gap-8 fixed bg-primary-200 text-white xl:hidden`}
         />
         <Nav containerStyles="flex gap-4 text-base uppercase font-medium transition-all hidden xl:flex text-white" />
         <div className="flex items-center gap-4">

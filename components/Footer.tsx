@@ -34,7 +34,7 @@ const Footer = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true on form submit
+    setLoading(true);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -64,7 +64,7 @@ const Footer = () => {
       setAlertMessage("Error submitting form");
       setAlertType("error");
     } finally {
-      setLoading(false); // Set loading to false once the process is done
+      setLoading(false);
       setTimeout(() => {
         setAlertMessage("");
         setAlertType("");
@@ -75,20 +75,18 @@ const Footer = () => {
   return (
     <footer className="relative text-white py-12 bg-black" id="contact">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 w-full h-full">
-          <Image
-            src="/assets/img/footer.jpg"
-            alt="Decorative background image"
-            fill
-            style={{ objectFit: "cover" }}
-            className="opacity-40"
-          />
-        </div>
+        <Image
+          src="/assets/img/footer.jpg"
+          alt="Decorative background image"
+          layout="fill"
+          objectFit="cover"
+          className="opacity-40"
+        />
       </div>
       <div className="relative container mx-auto px-4 z-10">
-        <div className="flex flex-wrap justify-between items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Contact Info */}
-          <div className="w-full md:w-1/4 mb-8 md:mb-0">
+          <div>
             <h4 className="text-xl font-bold mb-4">Capsule Gym</h4>
             <p className="mb-4">{contactInfo.description}</p>
             <ul>
@@ -109,13 +107,13 @@ const Footer = () => {
           </div>
 
           {/* Recent Blog Posts */}
-          <div className="w-full md:w-1/4 mb-8 md:mb-0">
+          <div>
             <h4 className="text-xl font-bold mb-4">RECENT BLOG POSTS</h4>
             <ul>
               {blogPosts.map((post, index) => (
                 <li key={index} className="mb-2">
-                  <Link href={post.href} legacyBehavior>
-                    <a className="hover:underline">{post.title}</a>
+                  <Link href={post.href} className="hover:underline">
+                    {post.title}
                   </Link>
                   <p className="text-gray-400 text-sm">{post.date}</p>
                 </li>
@@ -124,17 +122,17 @@ const Footer = () => {
           </div>
 
           {/* Gallery */}
-          <div className="w-full md:w-1/4 mb-8 md:mb-0">
+          <div>
             <h4 className="text-xl font-bold mb-4">GALLERY</h4>
             <div className="grid grid-cols-3 gap-2">
               {galleryImages.map((img, index) => (
-                <Link key={index} href="#">
+                <Link key={index} href="#" className="block">
                   <Image
                     src={img.src}
                     width={90}
                     height={90}
                     alt={img.alt}
-                    className="object-cover"
+                    className="object-cover w-full h-full"
                   />
                 </Link>
               ))}
@@ -142,7 +140,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="w-full md:w-1/4 mb-8 md:mb-0">
+          <div>
             <h4 className="text-xl font-bold mb-4">Contact Us</h4>
             {alertMessage && (
               <div
@@ -155,8 +153,8 @@ const Footer = () => {
               </div>
             )}
             <form onSubmit={handleSubmit} className="contact-form">
-              <div className="flex flex-wrap -mx-2">
-                <div className="w-full md:w-1/2 px-2 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div>
                   <label htmlFor="firstName" className="block text-sm mb-2">
                     First Name *
                   </label>
@@ -170,7 +168,7 @@ const Footer = () => {
                     required
                   />
                 </div>
-                <div className="w-full md:w-1/2 px-2 mb-4">
+                <div>
                   <label htmlFor="lastName" className="block text-sm mb-2">
                     Last Name *
                   </label>
@@ -229,31 +227,33 @@ const Footer = () => {
                 <button
                   type="submit"
                   className={`bg-red-600 text-white p-3 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300 ${
-                    loading ? "loading" : ""
+                    loading ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                   disabled={loading}
                 >
-                  {loading && (
-                    <div className="spinner border-t-2 border-b-2 border-white border-solid w-4 h-4 rounded-full animate-spin mr-2 inline-block"></div>
+                  {loading ? (
+                    <>
+                      <span className="inline-block animate-spin mr-2">⌛</span>
+                      Submitting...
+                    </>
+                  ) : (
+                    "Submit"
                   )}
-                  {loading ? "Submitting..." : "Submit"}
                 </button>
               </div>
             </form>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-4 flex flex-col md:flex-row justify-between items-center relative z-10">
-          <p className="mb-4 md:mb-0">
-            &copy; {currentYear} CapsuleGym. All rights reserved{" "}
+        <div className="border-t border-gray-700 mt-8 pt-4 flex flex-col sm:flex-row justify-between items-center relative z-10">
+          <p className="mb-4 sm:mb-0 text-center sm:text-left">
+            &copy; {currentYear} All rights reserved CapsuleGym.{" "}
             <span className="text-red-600">by Ahmed Khaled</span>
           </p>
           <div className="flex space-x-4">
             {socialLinks.map((link, index) => (
-              <Link key={index} href={link.href} legacyBehavior>
-                <a className="text-xl">
-                  <i className={link.iconClass}></i>
-                </a>
+              <Link key={index} href={link.href} className="text-xl">
+                <i className={link.iconClass}></i>
               </Link>
             ))}
           </div>

@@ -56,20 +56,6 @@ const Header = () => {
               <SignedOut>
                 <SignInButton />
               </SignedOut>
-
-
-            {/* <Link
-              href="/login"
-              className="hover:text-accent transition-all text-base uppercase font-medium"
-            >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className="hover:text-accent transition-all text-base uppercase font-medium"
-            >
-              Register
-            </Link> */}
           </div>
           <button
             onClick={() => setOpenNav(!openNav)}

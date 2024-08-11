@@ -168,8 +168,8 @@
   height: 150px;
   background: linear-gradient(
     to right,
-    #00ff00 25%,
-    #ffff00 25% 50%,
+    #ffff00 25%,
+    #00ff00 25% 50%,
     #ff8000 50% 75%,
     #ff0000 75% 100%
   );

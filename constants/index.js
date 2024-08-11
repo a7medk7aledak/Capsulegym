@@ -69,24 +69,28 @@ import class3 from "../public/assets/img/classes/fitness.jpg";
 import class4 from "../public/assets/img/classes/crossfit.jpg";
 export const classes = [
   {
+    id: "bodybuilding",
     name: "body building",
     img: class1,
     description:
       "a sport that involves the rigorous training and development of the body's muscles through a combination of weightlifting, cardio, and nutrition",
   },
   {
+    id: "CARDIO",
     name: "CARDIO",
     img: class2,
     description:
       "It gets your blood pumping and oxygen flowing, which translates to better health across the board.",
   },
   {
+    id: "FITNESS",
     name: "FITNESS",
     img: class3,
     description:
       "promotes strong muscles and bones. It improves respiratory, cardiovascular health, and overall health.",
   },
   {
+    id: "CROSSFIT",
     name: "CROSS FIT",
     img: class4,
     description:

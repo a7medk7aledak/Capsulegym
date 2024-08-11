@@ -46,11 +46,18 @@ const BMICalculator = () => {
 
   const getNeedleRotation = () => {
     const bmi = parseFloat(result);
-    if (bmi < 18.5) return -60;
-    if (bmi >= 18.5 && bmi < 25) return -20;
-    if (bmi >= 25 && bmi < 30) return 20;
-    if (bmi >= 30 && bmi < 40) return 60;
-    return 100; // BMI >= 40
+    if (bmi <= 18.4) return -60; // Underweight
+    if (bmi > 18.4 && bmi <= 24.9) return -20; // Normal
+    if (bmi >= 25 && bmi <= 39.9) return 20; // Overweight
+    return 60; // Obese
+  };
+
+  const getBMICategory = () => {
+    const bmi = parseFloat(result);
+    if (bmi <= 18.4) return "Underweight";
+    if (bmi > 18.4 && bmi <= 24.9) return "Normal";
+    if (bmi >= 25 && bmi <= 39.9) return "Overweight";
+    return "Obese";
   };
 
   return (
@@ -173,14 +180,20 @@ const BMICalculator = () => {
         <div className="bmi-indicator">
           <div
             className="needle"
-            style={{ transform: `rotate(${getNeedleRotation()}deg)` }}
+            style={{
+              transform: `rotate(${getNeedleRotation()}deg)`,
+            }}
           ></div>
         </div>
+        <div className="mt-4 text-center">
+          <p className="text-2xl font-bold">{result}</p>
+          <p className="text-xl">{getBMICategory()}</p>
+        </div>
         <ul className="bmi-categories">
-          <li className="normal">Normal (18.5-24.9)</li>
-          <li className="overweight">Overweight (25-29.9)</li>
-          <li className="obese">Obese (30-39.9)</li>
-          <li className="morbidly-obese">Morbidly Obese (&gt;40)</li>
+          <li className="underweight">Underweight (≤ 18.4)</li>
+          <li className="normal">Normal (18.5 - 24.9)</li>
+          <li className="overweight">Overweight (25 - 39.9)</li>
+          <li className="obese">Obese (≥ 40.0)</li>
         </ul>
       </motion.div>
     </motion.section>

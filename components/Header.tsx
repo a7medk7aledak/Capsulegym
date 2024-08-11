@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import {SignInButton, SignUp, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
 import Nav from "./Nav";
@@ -28,7 +28,7 @@ const Header = () => {
       } transition-all fixed max-w-[1920px] top-0 w-full bg-primary-200  z-50`}
     >
       <div className="container mx-auto h-full flex items-center justify-between">
-        <Link href="">
+        <Link href="/">
           <Image
             src={"/assets/img/logo.png"}
             width={117}

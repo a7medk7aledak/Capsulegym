@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CustomButton from "./CustomButton";
@@ -43,6 +42,15 @@ const BMICalculator = () => {
     setWeight("");
     setResult("");
     setAlert("");
+  };
+
+  const getNeedleRotation = () => {
+    const bmi = parseFloat(result);
+    if (bmi < 18.5) return -60;
+    if (bmi >= 18.5 && bmi < 25) return -20;
+    if (bmi >= 25 && bmi < 30) return 20;
+    if (bmi >= 30 && bmi < 40) return 60;
+    return 100; // BMI >= 40
   };
 
   return (
@@ -152,44 +160,28 @@ const BMICalculator = () => {
           )}
         </AnimatePresence>
       </motion.div>
+
+      {/* BMI Result Indicator */}
       <motion.div
         variants={fadeIn("up", 1.0)}
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.2 }}
-        className="mt-8 text-center"
+        className="mt-8 flex flex-col items-center"
       >
         <h3 className="text-xl mb-4">BODY MASS INDEX</h3>
-        <p className="mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <table className="mx-auto border-collapse border border-gray-200">
-          <thead>
-            <tr>
-              <th className="border p-2">BMI</th>
-              <th className="border p-2">CLASSIFICATION</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border p-2">18.5-25</td>
-              <td className="border p-2">Normal Weight</td>
-            </tr>
-            <tr>
-              <td className="border p-2">25-30</td>
-              <td className="border p-2">Over Weight</td>
-            </tr>
-            <tr>
-              <td className="border p-2">30-40</td>
-              <td className="border p-2">Obesity</td>
-            </tr>
-            <tr>
-              <td className="border p-2">&gt;40</td>
-              <td className="border p-2">Morbid Obesity</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="bmi-indicator">
+          <div
+            className="needle"
+            style={{ transform: `rotate(${getNeedleRotation()}deg)` }}
+          ></div>
+        </div>
+        <ul className="bmi-categories">
+          <li className="normal">Normal (18.5-24.9)</li>
+          <li className="overweight">Overweight (25-29.9)</li>
+          <li className="obese">Obese (30-39.9)</li>
+          <li className="morbidly-obese">Morbidly Obese (&gt;40)</li>
+        </ul>
       </motion.div>
     </motion.section>
   );

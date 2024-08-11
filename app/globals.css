@@ -162,3 +162,45 @@
 
 
 
+.bmi-indicator {
+  position: relative;
+  width: 300px;
+  height: 150px;
+  background: linear-gradient(
+    to right,
+    #00ff00 25%,
+    #ffff00 25% 50%,
+    #ff8000 50% 75%,
+    #ff0000 75% 100%
+  );
+  border-radius: 150px 150px 0 0;
+  border: 2px solid #000;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.needle {
+  position: absolute;
+  width: 4px;
+  height: 120px;
+  background: black;
+  top: 10px;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease;
+}
+
+.bmi-categories {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.bmi-categories li {
+  flex: 1;
+  text-align: center;
+}
+

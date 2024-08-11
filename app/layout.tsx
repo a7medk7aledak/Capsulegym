@@ -6,8 +6,6 @@ import type { Metadata } from "next";
 import { Roboto, Oswald } from "next/font/google";
 import "./globals.css";
 //components
-import Header from "@/components/Header";
-
 import Loader from "@/components/Loader";
 
 import type { AppProps } from "next/app";
@@ -38,6 +36,14 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className="bg-gray-200">
+        <head>
+          <link
+            rel="icon"
+            type="image/png"
+            href="/assets/img/1 (1).png"
+            sizes="16x16"
+          />
+        </head>
         <body
           className={`${oswald.variable}${roboto.variable}
       w-full max-w-[1920px] mx-auto bg-white

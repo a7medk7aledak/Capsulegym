@@ -88,7 +88,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Contact Info */}
           <div className="text-center md:text-left">
-            <h4 className="text-xl font-bold mb-4">Capsule Gym</h4>
+            <Link href="/">
+              <Image
+                src={"/assets/img/1 (1).png"}
+                width={100}
+                height={5}
+                alt="logo"
+              />
+            </Link>
+            <p className="text-xl font-bold mb-4 ">
+              <span className="text-red-600 ">Capsule</span> Gym
+            </p>
             <p className="mb-4">{contactInfo.description}</p>
             <ul>
               <li className="mb-2 flex items-center justify-center md:justify-start">

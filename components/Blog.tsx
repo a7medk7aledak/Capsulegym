@@ -11,7 +11,7 @@ import { blogData } from "../constants";
 import Link from "next/link";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
+const capsuleblog = "https://capsule-blog.onrender.com/";
 const Blog = () => {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
@@ -99,6 +99,7 @@ const Blog = () => {
           <CustomButton
             containerStyles="block w-[196px] h-[62px] mx-auto"
             text="View all"
+            onClick={() => window.open(capsuleblog)}
           />
         </motion.div>
       </div>
